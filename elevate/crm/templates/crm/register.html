@@ -1,0 +1,160 @@
+<html>
+<head>
+    <style>
+        /* Background styling for the body */
+        body {
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Center the form and give it a modern card-like design */
+        form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 350px;
+            max-width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Fade in effect for the form */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Style the heading */
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Styling text and email input fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 25px;
+            background-color: #f0f0f0;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Input hover and focus effects */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            background-color: #e8e8e8;
+            box-shadow: 0px 0px 5px rgba(156, 39, 176, 0.3);
+        }
+
+        /* Styling the submit button */
+        input[type="submit"] {
+            background-color: #8e44ad;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        /* Submit button hover effect */
+        input[type="submit"]:hover {
+            background-color: #5e3370;
+        }
+
+        /* Placeholder text color */
+        ::placeholder {
+            color: #999;
+        }
+
+        /* Subtle drop shadow for inputs and button */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add padding to the form fields */
+        form p {
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        /* Style error messages */
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        /* Style field descriptions */
+        .helptext {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        <!-- Username Field -->
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username" placeholder="Enter your username" required>
+        <p class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+
+        <!-- Email Field -->
+        <label for="id_email">Email Address</label>
+        <input type="email" name="email" id="id_email" placeholder="Enter your email address" required>
+
+        <!-- Password Field -->
+        <label for="id_password1">Password</label>
+        <input type="password" name="password1" id="id_password1" placeholder="Enter a strong password" required>
+        <p class="helptext">
+            Your password must contain at least 8 characters.<br>
+            It can’t be too similar to your other personal information.<br>
+            It can’t be a commonly used password.<br>
+            It can’t be entirely numeric.
+        </p>
+
+        <!-- Password Confirmation Field -->
+        <label for="id_password2">Confirm Password</label>
+        <input type="password" name="password2" id="id_password2" placeholder="Confirm your password" required>
+        <p class="helptext">Enter the same password as before, for verification.</p>
+
+        <input type="submit" value="Register"/>
+
+    </form>
+
+</body>
+</html>

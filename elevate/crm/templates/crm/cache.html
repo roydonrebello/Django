@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Browser Tab Management with LRU</title>
+    <!-- <link rel="stylesheet" href="style2.css"> -->
+    <!-- <link rel="stylesheet" href="{% url 'style2' %}"> -->
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <link rel="icon" type="image/png" href="https://angular.io/assets/images/logos/angular/angular.png">
+
+    <style>
+        .container h1 {
+            font-family: Sofia;
+        }
+        /* Styles for the login button */
+        .login-button {
+            background-color: #00ff00af;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .login-button:hover {
+            background-color: #428edf;
+        }
+        /* Container for input and buttons */
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+        .button-container input {
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="font-effect-outline">Web Browser Tab Management with LRU</h1>
+        <div class="button-container">
+            <input type="text" id="tabInput" placeholder="Enter tab URL">
+            <button onclick="addTab()">Open Tab</button>
+            <!-- <button class="login-button"  href="{% url 'home' %}"s">Login</button> -->
+            <a class="login-button" href="{% url 'my-login' %}" style="text-decoration: none;"> Login </a>
+        </div>
+        <div id="tabDisplay" class="tab-display">
+            <!-- Display container for open tabs -->
+        </div>
+        <div id="tabContentDisplay" class="tab-content-display">
+            <!-- Display content of the selected tab -->
+        </div>
+        <!-- Add this below the tab content display section -->
+        <div id="trafficStatsDisplay" class="traffic-stats-display">
+        <!-- Display container for traffic statistics -->
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
